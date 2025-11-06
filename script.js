@@ -349,3 +349,29 @@ document.addEventListener('DOMContentLoaded', () => {
         showPage('signup-page'); 
     }
 });
+
+
+
+
+
+
+
+// Function to show/hide the dropdown menu
+function toggleLanguageDropdown() {
+    const dropdown = document.getElementById('lang-options');
+    // Agar chhipa hua hai, toh dikhaao (block)
+    if (dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
+    } else {
+        // Varna, chhupa do (none)
+        dropdown.style.display = 'block';
+    }
+}
+
+// Function to close the dropdown after selecting a language
+function closeDropdown() {
+    document.getElementById('lang-options').style.display = 'none';
+}
+
+// NOTE: Aapke setLanguage function calls mein humne 'closeDropdown()' jod diya hai.
+// Example: onclick="setLanguage('en'); closeDropdown()"

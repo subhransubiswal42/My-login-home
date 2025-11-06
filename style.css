@@ -17,7 +17,8 @@ body {
 /* Page Management */
 .page {
     /* width: 100%; */
-    max-width: 400px; /* Mobile View Focus */
+    max-width: 400px;
+    /* Mobile View Focus */
     /* padding: 120px 30px 30px 30px; */
     /* background-color: #fff; */
     /* border-radius: 12px; */
@@ -27,6 +28,7 @@ body {
     display: none;
     margin: 0 auto;
 }
+
 .page.active {
     display: block;
 }
@@ -35,13 +37,16 @@ header {
     text-align: center;
     margin-bottom: 30px;
 }
+
 header h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #4CAF50; /* Green theme */
+    color: #4CAF50;
+    /* Green theme */
     /* margin: 0 0 5px; */
     /* font-size: 1.8em; */
 }
+
 header p {
     color: #777;
     font-size: 0.9em;
@@ -78,6 +83,7 @@ button:hover {
     margin-top: 20px;
     font-size: 0.9em;
 }
+
 .switch-link a {
     color: #4CAF50;
     text-decoration: none;
@@ -91,7 +97,8 @@ button:hover {
 }
 
 .feature-card {
-    background-color: #e8f5e9; /* Light green background */
+    background-color: #e8f5e9;
+    /* Light green background */
     border: 1px solid #c8e6c9;
     padding: 20px;
     border-radius: 10px;
@@ -125,9 +132,11 @@ button:hover {
 }
 
 .logout-btn {
-    background-color: #f44336; /* Red for logout */
+    background-color: #f44336;
+    /* Red for logout */
     margin-top: 20px;
 }
+
 .logout-btn:hover {
     background-color: #d32f2f;
 }
@@ -196,26 +205,30 @@ button:hover {
 
 /* Language Switcher Container Styling */
 .language {
-    position:absolute;
+    position: absolute;
     top: 20px;
     right: 20px;
     z-index: 9999;
     text-align: center;
-    padding: 10px;   /*Thodi zyaada padding
+    padding: 10px;
+    /*Thodi zyaada padding
     /* margin: 0;  */
-    max-width: 120px; 
-    background-color: #e8f5e9;   /*Light green background, matching feature cards*/
+    max-width: 120px;
+    background-color: #e8f5e9;
+    /*Light green background, matching feature cards*/
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /*Thoda shadow jodein*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /*Thoda shadow jodein*/
 }
 
 /* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
 .language button {
     /* Existing button styles ko override karein */
-    width: 100%; 
+    width: 100%;
     padding: 8px 10px;
-    margin: 3px 0; /* Vertical spacing */
-    
+    margin: 3px 0;
+    /* Vertical spacing */
+
     /* background-color: #4c964f;    Darker green (Aapke icons se match) */
     /* color: rgb(45, 43, 43); */
     /* border: none; */
@@ -223,17 +236,78 @@ button:hover {
     font-size: 0.9em;
     /* font-weight:bold; */
     /* cursor: pointer; */
-    
+
     /* Animation */
     /* transition: background-color 0.3s ease, transform 0.1s ease; */
-    
+
     /* Text layout for better readability */
     /* line-height: 1.2;  */
 }
 
 /* Hover Effect for Language Buttons */
 .language button:hover {
-    background-color: #1c7420; /* Thoda aur dark green */
+    background-color: #1c7420;
+    /* Thoda aur dark green */
     transform: translateY(-1px);
     opacity: 0.95;
+}
+
+
+
+
+
+/* Language Toggle Container - Position Fix */
+.language-dropdown-container {
+    position: fixed;
+    /* Screen par fixed rahega */
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+/* Main Toggle Button Style */
+.lang-toggle-btn {
+    width: auto;
+    padding: 10px 15px;
+    background-color: #388E3C;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 5px;
+    /* Dropdown se upar space */
+    /* Override global button styles for width */
+    display: block;
+}
+
+/* Dropdown Options Container (Jo Pehle Chhipa Rahega) */
+.dropdown-content {
+    display: none;
+    /* 🔑 Default roop se chhipa hua */
+    position: absolute;
+    /* Toggle button ke neeche dikhega */
+    top: 100%;
+    /* Toggle button ke theek neeche se shuru ho */
+    right: 0;
+    /* Right alignment */
+    width: 150px;
+    /* Width set karein */
+    background-color: #e8f5e9;
+    /* Light background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+}
+
+/* Dropdown Content ke Buttons */
+.dropdown-content button {
+    width: 100%;
+    padding: 8px 5px;
+    margin: 3px 0;
+    background-color: #4CAF50;
+    /* Options ka colour */
+    font-size: 0.9em;
+    border-radius: 6px;
+    /* Global button width override */
+    display: block;
 }

@@ -9,10 +9,16 @@
 </head>
 
 <body>
-    <div class="language">
-        <button onclick="setLanguage('en')">English</button>
-        <button onclick="setLanguage('hi')">हिंदी</button>
-        <button onclick="setLanguage('or')">ଓଡ଼ିଆ</button>
+    <div class="language-dropdown-container">
+        <button class="lang-toggle-btn" onclick="toggleLanguageDropdown()">
+            Language ▼
+        </button>
+
+        <div class="dropdown-content" id="lang-options">
+            <button onclick="setLanguage('en'); closeDropdown()">English</button>
+            <button onclick="setLanguage('hi'); closeDropdown()">हिंदी</button>
+            <button onclick="setLanguage('or'); closeDropdown()">ଓଡ଼ିଆ</button>
+        </div>
     </div>
 
     <div id="login-page" class="page active">
