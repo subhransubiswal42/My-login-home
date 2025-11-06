@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    /* background-image: url('bgimage.jpg') ; */
+    /* background-size: cover; */
+    margin: 100px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center; */
+    position: relative;
+    min-height: 100vh;
+    padding: 20px 10px;
+    color: #333;
+}
+
+/* Page Management */
+.page {
+    width: 100%;
+    max-width: 400px; /* Mobile View Focus */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+    display: none;
+    margin: 0 auto;
+}
+.page.active {
+    display: block;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+header h1 {
+    color: #4CAF50; /* Green theme */
+    margin: 0 0 5px;
+}
+header p {
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Form Styles (Login/Signup) */
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #328134;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.switch-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+.switch-link a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Home Page Features */
+.feature-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.feature-card {
+    background-color: #e8f5e9; /* Light green background */
+    border: 1px solid #c8e6c9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+}
+
+.icon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 5px;
+    color: #388E3C;
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #388E3C;
+    font-size: 1.1em;
+}
+
+.feature-card p {
+    font-size: 0.8em;
+    color: #555;
+}
+
+.logout-btn {
+    background-color: #f44336; /* Red for logout */
+    margin-top: 20px;
+}
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+
+
+/* New Styles for Irrigation Form */
+
+.back-btn {
+    /* Style the '← Wapas' button nicely */
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: auto;
+    background-color: transparent;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    padding: 5px 10px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #e8f5e9;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #388E3C;
+    font-size: 0.95em;
+}
+
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.input-note {
+    font-size: 0.75em;
+    color: #777;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.result-box {
+    margin-top: 25px;
+    padding: 15px;
+    border: 2px solid #c8e6c9;
+    border-radius: 8px;
+    background-color: #e8f5e9;
+    min-height: 50px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #388E3C;
+}
+
+
+
+/* Language Switcher Container Styling */
+.language {
+    position:absolute;
+    top: 15px;
+    right: 1.5px;
+    z-index: 1000;
+    text-align: center;
+    padding: 5px; /* Thodi zyaada padding */
+    margin: 0; 
+    max-width: 100px; 
+    background-color: #e8f5e9; /* Light green background, matching feature cards */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Thoda shadow jodein */
+}
+
+/* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
+.language button {
+    /* Existing button styles ko override karein */
+    width: 100%; 
+    padding: 5px 5px;
+    margin: 2px 0; /* Vertical spacing */
+    
+    background-color: #4c964f; /* Darker green (Aapke icons se match) */
+    color: rgb(45, 43, 43);
+    border: none;
+    border-radius: 8px; 
+    font-size: 80%;
+    font-weight:bold;
+    cursor: pointer;
+    
+    /* Animation */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    
+    /* Text layout for better readability */
+    line-height: 1.2; 
+}
+
+/* Hover Effect for Language Buttons */
+.language button:hover {
+    background-color: #1c7420; /* Thoda aur dark green */
+    transform: translateY(-1px);
+    opacity: 0.95;
+}

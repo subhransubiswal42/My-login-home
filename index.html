@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi-en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Kisan - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+
+    <div id="login-page" class="page active">
+        <header>
+            <h1>Smart Kisan App</h1>
+            <p>Login</p>
+        </header>
+        <main class="form-container">
+            <input type="email" id="login-email" placeholder="Email Address" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <!-- <button onclick="loginUser()">Login</button> -->
+             <button onclick="loginUser()" id="login-btn-text">Login</button>
+            <p class="switch-link">You don't have Account! <a href="#" onclick="showPage('signup-page')">Sign-up
+                    Please</a></p>
+        </main>
+    </div>
+
+    <div id="signup-page" class="page">
+        <header>
+            <h1>Create New Account</h1>
+        </header>
+        <main class="form-container">
+            <input type="text" id="signup-name" placeholder="Enter Your Name " required>
+            <input type="email" id="signup-email" placeholder="Enter Email Address" required>
+            <input type="password" id="signup-password" placeholder="Password (Minimum 6 characters)" required>
+            <!-- <button onclick="signupUser()">Sign-up</button> -->
+             <button onclick="signupUser()" id="signup-btn-text">Sign-up</button>
+            <p class="switch-link">Already You have an a Account! <a href="#" onclick="showPage('login-page')">Login
+                    please</a></p>
+        </main>
+    </div>
+
+    <div id="home-page" class="page">
+        <header>
+            <h2><span id="greeting-text">Namaskar, </span> <span id="user-name-display">Kisaan</span>!</h2>
+            <p id="manage-farm-text">Manage your farm</p>
+        </header>
+        <main class="feature-grid">
+
+            <div class="feature-card" onclick="showPage('irrigation-input-page')">
+                <span class="icon">💧</span>
+                <h3 id="irrigation-title">Smart Irrigation</h3>
+                <p id="irrigation-desc">Mausam aur fasal ke hisaab se paani dein.</p>
+            </div>
+
+            <div class="feature-card" onclick="showPage('fertilizer-input-page')">
+                <span class="icon">🌱</span>
+                <h3 id="fert-title">Fertilizer Optimiser</h3>
+                <p id="fert-desc">Mitti test ke aadhar par sahi khaad ki sifarish.</p>
+            </div>
+
+            <div class="feature-card" onclick="loadDashboard()">
+                <span class="icon">📈</span>
+                <h3 id="dashboard-title">Sustainability Dashboard</h3>
+                <p id="dashboard-desc">Paani, bijli aur paise ki bachat dekhein.</p>
+            </div>
+
+        </main>
+        <footer>
+            <button class="logout-btn" onclick="showPage('login-page')" id="logout-btn-text">Logout</button>
+        </footer>
+    </div>
+
+    
+
+    <!-- new page start -->
+    <div id="irrigation-input-page" class="page">
+        <header>
+            <button class="back-btn" onclick="showPage('home-page')">← Back</button>
+            <h2>💧 Smart Sichaai (Irrigation)</h2>
+            <p>Sahi sifarish ke liye jaankari bharein.</p>
+        </header>
+        <main class="form-container">
+
+            <label for="weather-condition">Aaj Ka Mausam (Rainfall Forecast - mm mein):</label>
+            <input type="number" id="weather-condition" placeholder="Example: 5 (mm baarish expected)" required>
+            <p class="input-note">*(Agar baarish expected nahi hai, toh 0 daalein.)</p>
+
+            <label for="crop-type">Fasal Ka Naam:</label>
+            <select id="crop-type" required>
+                <option value="">-- Fasal Chunein --</option>
+                <option value="rice">Dhaan (Rice)</option>
+                <option value="wheat">Gehun (Wheat)</option>
+                <option value="maize">Makka (Maize)</option>
+            </select>
+
+            <label for="area-size">Khet Ka Size (Acre mein):</label>
+            <input type="number" id="area-size" placeholder="Example: 2.5 (Acre)" required>
+
+            <button onclick="calculateIrrigation()">Sichaai Ki Sifarish Dekhein</button>
+
+            <div id="irrigation-result-display" class="result-box">
+            </div>
+
+        </main>
+    </div>
+
+    <!-- new div for Fertilizer -->
+    <div id="fertilizer-input-page" class="page">
+        <header>
+            <button class="back-btn" onclick="showPage('home-page')">← Back</button>
+            <h2>🌱 Khaad Optimiser</h2>
+            <p>Mitti ki report ke anusaar khaad ki sifarish.</p>
+        </header>
+        <main class="form-container">
+
+            <label for="fert-crop-type">Fasal Ka Naam:</label>
+            <select id="fert-crop-type" required>
+                <option value="">-- Select Crop --</option>
+                <option value="rice">Rice</option>
+                <option value="wheat">Wheat</option>
+                <option value="maize">Maize</option>
+            </select>
+
+            <label for="fert-yield">Expected Yield (Acre):</label>
+            <input type="number" id="fert-yield" placeholder="Example: 15" value="15" required>
+
+            <label>Status of Nutrients in Soil:</label>
+
+            <label for="n-level" class="sub-label">Nitrogen (N) Level:</label>
+            <select id="n-level">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="p-level" class="sub-label">Phosphorus (P) Level:</label>
+            <select id="p-level">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="k-level" class="sub-label">Potassium (K) Level:</label>
+            <select id="k-level">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <button onclick="calculateFertilizer()">View Fertilizer Recommendation"</button>
+
+            <div id="fertilizer-result-display" class="result-box">
+            </div>
+
+        </main>
+    </div>
+
+    <div class="language">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('hi')">हिंदी</button>
+        <button onclick="setLanguage('or')">ଓଡ଼ିଆ</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
