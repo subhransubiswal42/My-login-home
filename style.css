@@ -16,15 +16,15 @@ body {
 
 /* Page Management */
 .page {
-    /* width: 100%; */
+    width: 100%;
     max-width: 400px; /* Mobile View Focus */
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 60px 30px 30px 30px;
+    /* padding: 60px 30px 30px 30px; */
     box-sizing: border-box;
     display: none;
-    /* margin: 0 auto; */
+    margin: 0 auto;
 }
 .page.active {
     display: block;
@@ -37,6 +37,7 @@ header {
 header h1 {
     color: #4CAF50; /* Green theme */
     margin: 0 0 5px;
+    font-size: 1.8em;
 }
 header p {
     color: #777;
@@ -193,38 +194,38 @@ button:hover {
 /* Language Switcher Container Styling */
 .language {
     position:absolute;
-    top: 15px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     z-index: 1000;
     /* text-align: center; */
-    /* padding: 5px;   Thodi zyaada padding */
+    padding: 10px;   /*Thodi zyaada padding */
     /* margin: 0;  */
-    /* max-width: 100px;  */
+    max-width: 120px; 
     /* background-color: #e8f5e9;   Light green background, matching feature cards */
     /* border-radius: 12px; */
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);   Thoda shadow jodein */
+    box-shadow: none;   /*Thoda shadow jodein */
 }
 
 /* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
 .language button {
     /* Existing button styles ko override karein */
     width: 100%; 
-    padding: 5px 5px;
-    margin: 2px 0; /* Vertical spacing */
+    padding: 5px 8px;
+    margin: 3px 0; /* Vertical spacing */
     
-    background-color: #4c964f; /* Darker green (Aapke icons se match) */
-    color: rgb(45, 43, 43);
-    border: none;
-    border-radius: 8px; 
-    font-size: 80%;
-    font-weight:bold;
-    cursor: pointer;
+    /* background-color: #4c964f;    Darker green (Aapke icons se match) */
+    /* color: rgb(45, 43, 43); */
+    /* border: none; */
+    /* border-radius: 8px;  */
+    font-size: 0.9em;
+    /* font-weight:bold; */
+    /* cursor: pointer; */
     
     /* Animation */
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    /* transition: background-color 0.3s ease, transform 0.1s ease; */
     
     /* Text layout for better readability */
-    line-height: 1.2; 
+    /* line-height: 1.2;  */
 }
 
 /* Hover Effect for Language Buttons */
