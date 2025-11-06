@@ -151,7 +151,7 @@ button:hover {
 .back-btn {
     /* Style the '← Wapas' button nicely */
     position: absolute;
-    top: 5px;
+    top: 0;
     left: 20px;
     width: auto;
     background-color: transparent;
