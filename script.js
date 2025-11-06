@@ -218,7 +218,7 @@ function signupUser() {
         localStorage.setItem('kisanAppUser', JSON.stringify(userData));
 
         alert(`Account created successfully for ${name}! Please login.`);
-        
+
         document.getElementById('signup-name').value = '';
         document.getElementById('signup-email').value = '';
         document.getElementById('signup-password').value = '';
@@ -237,7 +237,7 @@ function loginUser() {
         alert('Please enter your email and password.');
         return;
     }
-    
+
     const storedUser = localStorage.getItem('kisanAppUser');
 
     if (storedUser) {
@@ -246,14 +246,14 @@ function loginUser() {
         if (userData.email === email && userData.password === password) {
             loggedInUserName = userData.name;
             alert(`Welcome back, ${loggedInUserName}!`);
-            
+
             document.getElementById('login-email').value = '';
             document.getElementById('login-password').value = '';
             showPage('home-page');
             return;
         }
     }
-    
+
     alert('Invalid Email or Password. Please check your credentials or Sign-up.');
 }
 
@@ -269,7 +269,7 @@ function setLanguage(lang) {
     // Home Page Updates (IDs must be present in HTML!)
     document.getElementById('greeting-text').textContent = currentLangData.greeting;
     document.getElementById('manage-farm-text').textContent = currentLangData.manage_farm;
-    
+
     document.getElementById('irrigation-title').textContent = currentLangData.irrigation_title;
     document.getElementById('irrigation-desc').textContent = currentLangData.irrigation_desc;
 
@@ -302,14 +302,29 @@ function calculateIrrigation() {
     const area = parseFloat(document.getElementById('area-size').value);
     const resultBox = document.getElementById('irrigation-result-display');
 
-    if (isNaN(rainfall) || !crop || isNaN(area) || area <= 0) {
-        resultBox.innerHTML = '<p style="color: red;">❌ Kripya sabhi jaankariyan sahi se bharein.</p>';
-        return;
-    }
+    // if (isNaN(rainfall) || !crop || isNaN(area) || area <= 0) {
+    //     resultBox.innerHTML = '<p style="color: red;">❌ Kripya sabhi jaankariyan sahi se bharein.</p>';
+    //     return;
+    // }
 
-    const cropNeed = CROP_WATER_NEED[crop] || 5.5; 
-    const netNeed = cropNeed - rainfall; 
-    
+
+    // ... (inside calculateIrrigation function) ...
+    if (netNeed <= 0) {
+        // Zaroorat nahi hai
+        const waterSavedLitres = area * cropNeed * 10000;
+
+        // 🔑 FIX: Water aur Money bachat save karna
+        updateSavings('water', waterSavedLitres);
+        // Anumaan: Har 1000 litre bachat par ₹0.50 bijli/diesel bachat
+        updateSavings('money', Math.round(waterSavedLitres / 1000 * 0.50));
+
+        // ... (rest of the result display code) ...
+    }
+    // ...
+
+    const cropNeed = CROP_WATER_NEED[crop] || 5.5;
+    const netNeed = cropNeed - rainfall;
+
     if (netNeed <= 0) {
         // Paani ki zaroorat nahi hai
         const waterSavedLitres = area * cropNeed * 10000;
@@ -336,8 +351,8 @@ function calculateIrrigation() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // A. Initial Language Set Karna (Page load hote hi language set hoti hai)
-    const savedLang = localStorage.getItem('kisanAppLang') || 'hi'; 
-    setLanguage(savedLang); 
+    const savedLang = localStorage.getItem('kisanAppLang') || 'hi';
+    setLanguage(savedLang);
 
     // B. Login State Check Karna
     const storedUserCheck = localStorage.getItem('kisanAppUser');
@@ -346,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loggedInUserName = userData.name;
         showPage('login-page');
     } else {
-        showPage('signup-page'); 
+        showPage('signup-page');
     }
 });
 
@@ -375,3 +390,48 @@ function closeDropdown() {
 
 // NOTE: Aapke setLanguage function calls mein humne 'closeDropdown()' jod diya hai.
 // Example: onclick="setLanguage('en'); closeDropdown()"
+
+
+
+
+
+// Global function to update total savings in Local Storage
+function updateSavings(type, amount) {
+    let currentSavings = JSON.parse(localStorage.getItem('kisanAppSavings') || '{}');
+
+    // Ensure the type exists and is a number
+    if (isNaN(currentSavings[type])) {
+        currentSavings[type] = 0;
+    }
+
+    currentSavings[type] += amount;
+    localStorage.setItem('kisanAppSavings', JSON.stringify(currentSavings));
+}
+
+
+
+
+
+// script.js mein yeh naya function jodein
+function loadDashboard() {
+    // Page ko switch karein
+    showPage('dashboard-page');
+
+    // Local Storage se data nikalna
+    const savings = JSON.parse(localStorage.getItem('kisanAppSavings') || '{}');
+
+    // Ensure all values are available, default to 0 if not found
+    const water = savings.water || 0;
+    const fert = savings.fertilizer || 0;
+    const money = savings.money || 0;
+
+    // Display updates
+    document.getElementById('total-water-saved').textContent =
+        `${(water / 1000).toFixed(1)} K Litre`; // K Litres mein dikhana
+
+    document.getElementById('total-fert-saved').textContent =
+        `${fert.toFixed(1)} kg`;
+
+    document.getElementById('total-money-saved').textContent =
+        `₹ ${Math.round(money).toLocaleString()}`; // Rupee symbol ke saath
+}

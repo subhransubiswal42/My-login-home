@@ -170,6 +170,43 @@
 
 
 
+    <div id="dashboard-page" class="page">
+        <header>
+            <button class="back-btn" onclick="showPage('home-page')">← Wapas</button>
+            <h2 id="dashboard-title-text">Sustainability Dashboard</h2>
+            <p id="dashboard-desc-text">Aapki mahine ki bachat aur pradarshan (performance).</p>
+        </header>
+        <main class="form-container">
+
+            <h3 style="color: #4CAF50;" id="total-savings-heading">💰 Kul Anumaanit Bachat</h3>
+
+            <div class="feature-card dashboard-item">
+                <span class="icon" style="color:#007BFF;">💧</span>
+                <h4 id="total-water-saved">0 Litre</h4>
+                <p id="water-saved-label">Paani Sanchay (Water Saved)</p>
+            </div>
+
+            <div class="feature-card dashboard-item">
+                <span class="icon" style="color:#FFC107;">🌱</span>
+                <h4 id="total-fert-saved">0 kg</h4>
+                <p id="fert-saved-label">Khaad Ki Bachat (Fertilizer Saved)</p>
+            </div>
+
+            <div class="feature-card dashboard-item">
+                <span class="icon" style="color:#DC3545;">₹</span>
+                <h4 id="total-money-saved">₹ 0</h4>
+                <p id="money-saved-label">Bijli/Diesel Bachat (Money Saved)</p>
+            </div>
+
+            <p style="text-align: center; margin-top: 25px; font-size: 0.9em; color: #777;" id="dashboard-note">
+                *(Yeh data pichli sifarishon (recommendations) par aadharit hai.)
+            </p>
+
+        </main>
+    </div>
+
+
+
     <script src="script.js"></script>
 </body>
 
