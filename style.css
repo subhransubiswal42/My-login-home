@@ -203,7 +203,7 @@ button:hover {
 
 
 
-/* Language Switcher Container Styling */
+/* Language Switcher Container Styling 
 .language {
     position: absolute;
     top: 20px;
@@ -212,28 +212,28 @@ button:hover {
     text-align: center;
     padding: 10px;
     /*Thodi zyaada padding
-    /* margin: 0;  */
+    /* margin: 0;  
     max-width: 120px;
     background-color: #e8f5e9;
-    /*Light green background, matching feature cards*/
+    /*Light green background, matching feature cards
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /*Thoda shadow jodein*/
-}
+    /*Thoda shadow jodein
+}*/
 
 /* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
-.language button {
+/* .language button { */
     /* Existing button styles ko override karein */
-    width: 100%;
+    /* width: 100%;
     padding: 8px 10px;
-    margin: 3px 0;
+    margin: 3px 0; */
     /* Vertical spacing */
 
     /* background-color: #4c964f;    Darker green (Aapke icons se match) */
     /* color: rgb(45, 43, 43); */
     /* border: none; */
     /* border-radius: 8px;  */
-    font-size: 0.9em;
+    /* font-size: 0.9em; */
     /* font-weight:bold; */
     /* cursor: pointer; */
 
@@ -245,12 +245,12 @@ button:hover {
 }
 
 /* Hover Effect for Language Buttons */
-.language button:hover {
+/* .language button:hover {
     background-color: #1c7420;
     /* Thoda aur dark green */
     transform: translateY(-1px);
     opacity: 0.95;
-}
+} */
 
 
 
