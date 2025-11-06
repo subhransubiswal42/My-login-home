@@ -9,9 +9,14 @@
 </head>
 
 <body>
-    
+
 
     <div id="login-page" class="page active">
+        <div class="language">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('hi')">हिंदी</button>
+            <button onclick="setLanguage('or')">ଓଡ଼ିଆ</button>
+        </div>
         <header>
             <h1>Smart Kisan App</h1>
             <p>Login</p>
@@ -20,7 +25,7 @@
             <input type="email" id="login-email" placeholder="Email Address" required>
             <input type="password" id="login-password" placeholder="Password" required>
             <!-- <button onclick="loginUser()">Login</button> -->
-             <button onclick="loginUser()" id="login-btn-text">Login</button>
+            <button onclick="loginUser()" id="login-btn-text">Login</button>
             <p class="switch-link">You don't have Account! <a href="#" onclick="showPage('signup-page')">Sign-up
                     Please</a></p>
         </main>
@@ -35,7 +40,7 @@
             <input type="email" id="signup-email" placeholder="Enter Email Address" required>
             <input type="password" id="signup-password" placeholder="Password (Minimum 6 characters)" required>
             <!-- <button onclick="signupUser()">Sign-up</button> -->
-             <button onclick="signupUser()" id="signup-btn-text">Sign-up</button>
+            <button onclick="signupUser()" id="signup-btn-text">Sign-up</button>
             <p class="switch-link">Already You have an a Account! <a href="#" onclick="showPage('login-page')">Login
                     please</a></p>
         </main>
@@ -72,7 +77,7 @@
         </footer>
     </div>
 
-    
+
 
     <!-- new page start -->
     <div id="irrigation-input-page" class="page">
@@ -157,11 +162,7 @@
         </main>
     </div>
 
-    <div class="language">
-        <button onclick="setLanguage('en')">English</button>
-        <button onclick="setLanguage('hi')">हिंदी</button>
-        <button onclick="setLanguage('or')">ଓଡ଼ିଆ</button>
-    </div>
+
 
     <script src="script.js"></script>
 </body>

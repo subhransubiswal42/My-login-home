@@ -16,15 +16,15 @@ body {
 
 /* Page Management */
 .page {
-    width: 100%;
+    /* width: 100%; */
     max-width: 400px; /* Mobile View Focus */
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding: 60px 30px 30px 30px;
     box-sizing: border-box;
     display: none;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 .page.active {
     display: block;
@@ -194,15 +194,15 @@ button:hover {
 .language {
     position:absolute;
     top: 15px;
-    right: 1.5px;
+    right: 20px;
     z-index: 1000;
-    text-align: center;
-    padding: 5px; /* Thodi zyaada padding */
-    margin: 0; 
-    max-width: 100px; 
-    background-color: #e8f5e9; /* Light green background, matching feature cards */
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Thoda shadow jodein */
+    /* text-align: center; */
+    /* padding: 5px;   Thodi zyaada padding */
+    /* margin: 0;  */
+    /* max-width: 100px;  */
+    /* background-color: #e8f5e9;   Light green background, matching feature cards */
+    /* border-radius: 12px; */
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);   Thoda shadow jodein */
 }
 
 /* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
