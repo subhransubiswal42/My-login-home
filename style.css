@@ -16,13 +16,15 @@ body {
 
 /* Page Management */
 .page {
-    width: 100%;
+    /* width: 100%; */
     max-width: 400px;
+    margin-top: 90px;
+    margin-bottom: 20px;
     /* Mobile View Focus */
     /* padding: 120px 30px 30px 30px; */
     background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* border-radius: 12px; */
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
     padding: 30px;
     box-sizing: border-box;
     display: none;
@@ -36,7 +38,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 header h1 {
