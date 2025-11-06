@@ -1,63 +1,67 @@
+/* ===========================================
+   1. GLOBAL & BODY STYLING (FIXED)
+   =========================================== */
 body {
-    /* font-family: Arial, sans-serif;
-    background-color: #f4f7f6; */
-    /* background-image: url('bgimage.jpg') ; */
-    /* background-size: cover; */
-    /* margin: 100px; */
-    /* display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f0; /* Light green background */
+    margin: 0;
+    
+    position: relative; /* Crucial for fixed language dropdown */
+    
+    min-height: 100vh;
+    padding: 20px 10px; /* General padding */
+    color: #333;
+    
+    display: flex; /* For centering the main content block */
     flex-direction: column;
-    justify-content: center;
-    align-items:center; */
-    position: relative;
-    /* min-height: 100vh;
-    padding: 20px 10px;
-    color: #333; */
+    align-items: center; /* Horizontally center everything */
 }
 
-/* Page Management */
+/* ===========================================
+   2. PAGE CONTAINERS (Login, Signup, Home, Forms)
+   =========================================== */
 .page {
-    /* width: 100%; */
-    max-width: 400px;
-    margin-top: 90px;
-    margin-bottom: 20px;
-    /* Mobile View Focus */
-    /* padding: 120px 30px 30px 30px; */
+    width: 100%;
+    max-width: 420px; /* Thoda zyada width */
     background-color: #fff;
-    /* border-radius: 12px; */
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
-    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    /* 🔑 FIX: Login page ki padding */
+    /* Hum body se align-items hatakar margin auto use karenge */
+    padding: 30px; 
+    
     box-sizing: border-box;
     display: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto; /* Top/Bottom margin aur center align */
+    
+    position: relative; /* Back button ke liye zaroori */
 }
-
 .page.active {
     display: block;
 }
 
 header {
     text-align: center;
-    margin-top: 40;
+    /* 🔑 FIX: Top margin hata dein */
+    margin-top: 0; 
     margin-bottom: 30px;
 }
-
-header h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #4CAF50;
-    /* Green theme */
-    /* margin: 0 0 5px; */
-    /* font-size: 1.8em; */
+header h1, header h2 {
+    color: #388E3C; 
+    margin: 0 0 5px;
+    font-size: 1.8em; /* Adjusted size */
 }
-
 header p {
     color: #777;
     font-size: 0.9em;
 }
 
-/* Form Styles (Login/Signup) */
-.form-container input {
+/* ===========================================
+   3. FORMS & BUTTONS
+   =========================================== */
+.form-container input,
+.form-container select {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
@@ -69,7 +73,7 @@ header p {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #328134;
+    background-color: #328134; /* Aapka preferred button color */
     color: white;
     border: none;
     border-radius: 6px;
@@ -82,32 +86,30 @@ button:hover {
     background-color: #45a049;
 }
 
-.switch-link {
-    text-align: center;
+.logout-btn {
+    background-color: #f44336; 
     margin-top: 20px;
-    font-size: 0.9em;
+}
+.logout-btn:hover {
+    background-color: #d32f2f;
 }
 
-.switch-link a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Home Page Features */
+/* ===========================================
+   4. HOME PAGE FEATURES & CARDS
+   =========================================== */
 .feature-grid {
     display: grid;
     gap: 15px;
 }
 
 .feature-card {
-    background-color: #e8f5e9;
-    /* Light green background */
+    background-color: #e8f5e9; 
     border: 1px solid #c8e6c9;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -131,27 +133,62 @@ button:hover {
 }
 
 .feature-card p {
-    font-size: 0.8em;
+    font-size: 0.85em;
     color: #555;
 }
 
-.logout-btn {
-    background-color: #f44336;
-    /* Red for logout */
-    margin-top: 20px;
+
+/* ===========================================
+   5. LANGUAGE DROPDOWN TOGGLE (FIXED TOP-RIGHT)
+   =========================================== */
+
+.language-dropdown-container {
+    position: fixed; 
+    top: 15px; /* Top से 15px */
+    right: 20px; /* Right से 20px */
+    z-index: 9999;
 }
 
-.logout-btn:hover {
-    background-color: #d32f2f;
+.lang-toggle-btn {
+    width: auto;
+    padding: 8px 12px;
+    background-color: #388E3C; 
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 5px;
+    display: block;
 }
 
+.dropdown-content {
+    max-width: 130px; /* Thoda zyada width den */
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    right: 0; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+}
 
-/* New Styles for Irrigation Form */
+.dropdown-content button {
+    width: 100%;
+    padding: 6px 4px;
+    margin: 3px 0;
+    background-color: #4CAF50; /* Button color */
+    font-size: 0.9em; /* Font size theek karein */
+    border-radius: 6px;
+    display: block;
+}
+
+/* ===========================================
+   6. UTILITY / DASHBOARD STYLES
+   =========================================== */
 
 .back-btn {
-    /* Style the '← Wapas' button nicely */
     position: absolute;
-    top: 0;
+    top: 30px; /* Top margin */
     left: 20px;
     width: auto;
     background-color: transparent;
@@ -164,26 +201,31 @@ button:hover {
     transition: background-color 0.3s;
 }
 
-.back-btn:hover {
-    background-color: #e8f5e9;
+.dashboard-item {
+    /* Dashboard cards ko Home page cards se alag karne ke liye */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 15px;
 }
 
-.form-container label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #388E3C;
-    font-size: 0.95em;
+.dashboard-item h4 {
+    margin: 0;
+    color: #328134;
+    font-size: 1.3em;
+    flex-grow: 1;
+    text-align: right; /* Value ko right mein le jayen */
 }
 
-.form-container select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
+.dashboard-item p {
+    font-size: 0.9em;
+    margin: 0;
+    color: #555;
+}
+
+.dashboard-item .icon {
+    margin-right: 15px;
 }
 
 .input-note {
@@ -196,125 +238,11 @@ button:hover {
 .result-box {
     margin-top: 25px;
     padding: 15px;
-    border: 2px solid #c8e6c9;
+    border: 2px solid #a5d6a5;
     border-radius: 8px;
     background-color: #e8f5e9;
-    min-height: 50px;
     text-align: center;
     font-size: 1.1em;
     color: #388E3C;
-}
-
-
-
-/* Language Switcher Container Styling 
-.language {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    text-align: center;
-    padding: 10px;
-    /*Thodi zyaada padding
-    /* margin: 0;  
-    max-width: 120px;
-    background-color: #e8f5e9;
-    /*Light green background, matching feature cards
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /*Thoda shadow jodein
-}*/
-
-/* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
-/* .language button { */
-    /* Existing button styles ko override karein */
-    /* width: 100%;
-    padding: 8px 10px;
-    margin: 3px 0; */
-    /* Vertical spacing */
-
-    /* background-color: #4c964f;    Darker green (Aapke icons se match) */
-    /* color: rgb(45, 43, 43); */
-    /* border: none; */
-    /* border-radius: 8px;  */
-    /* font-size: 0.9em; */
-    /* font-weight:bold; */
-    /* cursor: pointer; */
-
-    /* Animation */
-    /* transition: background-color 0.3s ease, transform 0.1s ease; */
-
-    /* Text layout for better readability */
-    /* line-height: 1.2;  
-}*/
-
-/* Hover Effect for Language Buttons */
-/* .language button:hover {
-    background-color: #1c7420;
-    /* Thoda aur dark green 
-    transform: translateY(-1px);
-    opacity: 0.95;
-} */
-
-
-
-
-
-/* Language Toggle Container - Position Fix */
-.language-dropdown-container {
-    position: fixed;
-    /* Screen par fixed rahega */
-    top: 15px;
-    right: 20px;
-    z-index: 9999;
-}
-
-/* Main Toggle Button Style */
-.lang-toggle-btn {
-    width: auto;
-    padding: 10px 15px;
-    background-color: #388E3C;
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 5px;
-    /* Dropdown se upar space */
-    /* Override global button styles for width */
-    display: block;
-}
-
-/* Dropdown Options Container (Jo Pehle Chhipa Rahega) */
-.dropdown-content {
-    max-width: 110px;
-    display: none;
-    /* 🔑 Default roop se chhipa hua */
-    /* position: absolute; */
-    /* Toggle button ke neeche dikhega */
-    /* top: 100%; */
-    /* Toggle button ke theek neeche se shuru ho */
-    /* right: 0; */
-    /* left: auto; */
-    /* Right alignment */
-    /* width: 150px; */
-    /* Width set karein */
-    /* background-color: #e8f5e9; */
-    /* Light background */
-    /* border-radius: 8px; */
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
-    /* padding: 5px; */
-    /* margin-bottom: 5px; */
-}
-
-/* Dropdown Content ke Buttons */
-.dropdown-content button {
-    width: 100%;
-    padding: 6px 4px;
-    margin: 3px 0;
-    /* background-color: #4CAF50; */
-    /* Options ka colour */
-    font-size: 0.6em;
-    /* border-radius: 6px; */
-    /* Global button width override */
-    display: block;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
