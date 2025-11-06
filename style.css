@@ -285,34 +285,35 @@ button:hover {
 
 /* Dropdown Options Container (Jo Pehle Chhipa Rahega) */
 .dropdown-content {
-    display: none;
+    max-width: 110px;
+    /* display: none; */
     /* 🔑 Default roop se chhipa hua */
-    position: absolute;
+    /* position: absolute; */
     /* Toggle button ke neeche dikhega */
-    top: 100%;
+    /* top: 100%; */
     /* Toggle button ke theek neeche se shuru ho */
-    right: 0;
-    left: auto;
+    /* right: 0; */
+    /* left: auto; */
     /* Right alignment */
-    width: 150px;
+    /* width: 150px; */
     /* Width set karein */
-    background-color: #e8f5e9;
+    /* background-color: #e8f5e9; */
     /* Light background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 5px;
-    margin-bottom: 5px;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    /* padding: 5px; */
+    /* margin-bottom: 5px; */
 }
 
 /* Dropdown Content ke Buttons */
 .dropdown-content button {
     width: 100%;
-    padding: 8px 5px;
+    padding: 6px 4px;
     margin: 3px 0;
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
     /* Options ka colour */
-    font-size: 0.9em;
-    border-radius: 6px;
+    font-size: 0.6em;
+    /* border-radius: 6px; */
     /* Global button width override */
     display: block;
 }
