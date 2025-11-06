@@ -1,63 +1,74 @@
+/*  1. GLOBAL & BODY STYLING*/
 body {
-    /* font-family: Arial, sans-serif;
-    background-color: #f4f7f6; */
-    /* background-image: url('bgimage.jpg') ; */
-    /* background-size: cover; */
-    /* margin: 100px; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center; */
-    position: relative;
-    /* min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f0; 
+    margin: 0;
+    
+    position: relative; 
+    
+    min-height: 100vh;
     padding: 20px 10px;
-    color: #333; */
+    color: #333;
+    
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
 }
 
-/* Page Management */
+/*2. PAGE CONTAINERS & LAYOUT*/
 .page {
-    /* width: 100%; */
-    max-width: 400px;
-    margin-top: 90px;
-    margin-bottom: 20px;
-    /* Mobile View Focus */
-    /* padding: 120px 30px 30px 30px; */
+    width: 100%;
+    max-width: 420px;
     background-color: #fff;
-    /* border-radius: 12px; */
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
-    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    /* 🔑 FIX: Extra padding to prevent overlap with FIXED language buttons */
+    padding: 120px 30px 30px 30px; 
+    
     box-sizing: border-box;
     display: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto; /* Center align */
+    
+    position: relative; 
 }
-
 .page.active {
     display: block;
 }
 
 header {
     text-align: center;
-    margin-top: 40;
     margin-bottom: 30px;
 }
-
-header h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #4CAF50;
-    /* Green theme */
-    /* margin: 0 0 5px; */
-    /* font-size: 1.8em; */
+header h1, header h2 {
+    color: #388E3C; 
+    margin: 0 0 5px;
+    font-size: 1.8em; 
 }
-
 header p {
     color: #777;
     font-size: 0.9em;
 }
 
-/* Form Styles (Login/Signup) */
-.form-container input {
+/* Back button positioning */
+.back-btn {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: auto;
+    background-color: transparent;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+/* 3. FORMS & BUTTONS*/
+.form-container input,
+.form-container select {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
@@ -69,7 +80,7 @@ header p {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #328134;
+    background-color: #328134; /* Primary action button */
     color: white;
     border: none;
     border-radius: 6px;
@@ -82,168 +93,98 @@ button:hover {
     background-color: #45a049;
 }
 
+.logout-btn {
+    background-color: #f44336; 
+    margin-top: 20px;
+}
+
 .switch-link {
     text-align: center;
     margin-top: 20px;
     font-size: 0.9em;
 }
-
 .switch-link a {
     color: #4CAF50;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Home Page Features */
+/*4. LANGUAGE DROPDOWN TOGGLE (FIXED TOP-RIGHT)*/
+
+.language-dropdown-container {
+    position: fixed; 
+    top: 15px; 
+    right: 20px; 
+    z-index: 9999;
+}
+
+.lang-toggle-btn {
+    width: auto;
+    padding: 8px 12px;
+    background-color: #388E3C; 
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.dropdown-content {
+    max-width: 130px; 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    right: 0; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+}
+
+.dropdown-content button {
+    width: 100%;
+    padding: 6px 4px;
+    margin: 2px 0;
+    background-color: #4CAF50; 
+    font-size: 0.9em;
+    border-radius: 6px;
+    display: block;
+}
+
+/*5. FEATURE CARDS & DASHBOARD STYLES*/
 .feature-grid {
     display: grid;
     gap: 15px;
 }
 
 .feature-card {
-    background-color: #e8f5e9;
-    /* Light green background */
+    background-color: #e8f5e9; 
     border: 1px solid #c8e6c9;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.feature-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
 }
 
 .icon {
     font-size: 2.5em;
-    display: block;
-    margin-bottom: 5px;
     color: #388E3C;
 }
 
-.feature-card h3 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: #388E3C;
-    font-size: 1.1em;
-}
-
-.feature-card p {
-    font-size: 0.8em;
-    color: #555;
-}
-
-.logout-btn {
-    background-color: #f44336;
-    /* Red for logout */
-    margin-top: 20px;
-}
-
-.logout-btn:hover {
-    background-color: #d32f2f;
-}
-
-
-/* New Styles for Irrigation Form */
-
-.back-btn {
-    /* Style the '← Wapas' button nicely */
-    position: absolute;
-    top: 0;
-    left: 20px;
-    width: auto;
-    background-color: transparent;
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
-    padding: 5px 10px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-}
-
-.back-btn:hover {
-    background-color: #e8f5e9;
-}
-
-.form-container label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #388E3C;
-    font-size: 0.95em;
-}
-
-.form-container select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
-}
-
-.input-note {
-    font-size: 0.75em;
-    color: #777;
-    margin-top: -10px;
-    margin-bottom: 15px;
-}
-
-.result-box {
-    margin-top: 25px;
+/* DASHBOARD SPECIFIC STYLES */
+.dashboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
     padding: 15px;
-    border: 2px solid #c8e6c9;
-    border-radius: 8px;
-    background-color: #e8f5e9;
-    min-height: 50px;
-    text-align: center;
-    font-size: 1.1em;
-    color: #388E3C;
 }
 
-/* Language Toggle Container - Position Fix */
-.language-dropdown-container {
-    position: fixed;
-    /* Screen par fixed rahega */
-    top: 15px;
-    right: 20px;
-    z-index: 9999;
-}
-
-/* Main Toggle Button Style */
-.lang-toggle-btn {
-    width: auto;
-    padding: 10px 15px;
-    background-color: #388E3C;
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 5px;
-    /* Dropdown se upar space */
-    /* Override global button styles for width */
-    display: block;
-}
-
-/* Dropdown Options Container (Jo Pehle Chhipa Rahega) */
-.dropdown-content {
-    max-width: 110px;
-    display: none;
-}
-
-/* Dropdown Content ke Buttons */
-.dropdown-content button {
-    width: 100%;
-    padding: 6px 4px;
-    margin: 3px 0;
-    /* background-color: #4CAF50; */
-    /* Options ka colour */
-    font-size: 0.6em;
-    /* border-radius: 6px; */
-    /* Global button width override */
-    display: block;
+.dashboard-item h4 {
+    margin: 0;
+    color: #328134;
+    font-size: 1.3em;
+    flex-grow: 1;
+    text-align: right;
 }

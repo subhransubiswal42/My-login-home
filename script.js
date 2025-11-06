@@ -1,135 +1,4 @@
-// // Variable to store the logged-in user's name (for display)
-// let loggedInUserName = 'Kisaan';
-
-// // Function to switch between pages
-// function showPage(pageId) {
-//     // Hide all pages
-//     document.querySelectorAll('.page').forEach(page => {
-//         page.classList.remove('active');
-//     });
-//     // Show the requested page
-//     document.getElementById(pageId).classList.add('active');
-
-//     // Update username display on Home page
-//     if (pageId === 'home-page') {
-//         document.getElementById('user-name-display').textContent = loggedInUserName;
-//     }
-// }
-
-// // Function to handle Sign-up (Basic validation only)
-// function signupUser() {
-//     const name = document.getElementById('signup-name').value;
-//     const email = document.getElementById('signup-email').value;
-//     const password = document.getElementById('signup-password').value;
-
-//     if (name && email && password.length >= 6) {
-
-//         // 🔑 LOCAL STORAGE STEP 1: Data Object Banana
-//         const userData = {
-//             name: name,
-//             email: email,
-//             password: password // Note: Real apps always hash passwords before saving!
-//         };
-
-//         // 🔑 LOCAL STORAGE STEP 2: Object ko String mein badalna (JSON.stringify)
-//         // Local Storage sirf string value store karta hai.
-//         localStorage.setItem('kisanAppUser', JSON.stringify(userData));
-
-//         alert(`Account created successfully for ${name}! Please login.`);
-
-//         // Clear input fields and show login page
-//         document.getElementById('signup-name').value = '';
-//         document.getElementById('signup-email').value = '';
-//         document.getElementById('signup-password').value = '';
-//         showPage('login-page');
-//     } else {
-//         alert('Please fill in all fields correctly. Password must be at least 6 characters.');
-//     }
-// }
-
-// // Variable to store the logged-in user's name (globally)
-// // let loggedInUserName = 'Kisaan'; 
-
-// function loginUser() {
-//     const email = document.getElementById('login-email').value;
-//     const password = document.getElementById('login-password').value;
-
-//     if (!email || !password) {
-//         alert('Please enter your email and password.');
-//         return;
-//     }
-
-//     // 🔑 LOCAL STORAGE STEP 3: Data nikalna (localStorage.getItem)
-//     const storedUser = localStorage.getItem('kisanAppUser');
-
-//     if (storedUser) {
-//         // 🔑 LOCAL STORAGE STEP 4: String ko wapas Object mein badalna (JSON.parse)
-//         const userData = JSON.parse(storedUser);
-
-//         // Credentials Verify Karein
-//         if (userData.email === email && userData.password === password) {
-//             loggedInUserName = userData.name; // User ka naam update karein
-//             alert(`Welcome back, ${loggedInUserName}!`);
-
-//             // Clear input fields and show home page
-//             document.getElementById('login-email').value = '';
-//             document.getElementById('login-password').value = '';
-//             showPage('home-page');
-//             return;
-//         }
-//     }
-
-//     // Agar login fail ho jaye
-//     alert('Invalid Email or Password. Please check your credentials or Sign-up.');
-// }
-
-// // Ensure the login page is shown when the page loads
-// // Initial check when the script loads
-// const storedUser = localStorage.getItem('kisanAppUser');
-// if (storedUser) {
-//     // Agar user registered hai, toh uska naam set kar do
-//     loggedInUserName = JSON.parse(storedUser).name;
-// }
-// // Agar koi user registered nahi hai, toh default 'Kisaan' rahega
-
-
-// // Logout button ki functionality
-// // (Pichle HTML mein button tha, yahan koi data deletion ki zaroorat nahi hai, sirf page switch karna hai)
-// // Agar aap puri tarah se login state clear karna chahte hain (next step mein dekhenge)
-
-// // ... rest of the script ...
-
-// // Ensure the correct page is shown when the page loads
-// document.addEventListener('DOMContentLoaded', () => {
-//     // Agar Local Storage mein data hai, toh unhe login screen dikhao, warna signup.
-//     if (localStorage.getItem('kisanAppUser')) {
-//         showPage('login-page');
-//     } else {
-//         showPage('signup-page'); // First time users directly go to signup
-//     }
-// });
-
-// // New page added
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ===========================================
 // 1. 🌐 TRANSLATION DATA
-// ===========================================
 
 const translations = {
     // English (Default)
@@ -144,7 +13,7 @@ const translations = {
         dashboard_desc: "See water, power, and money savings.",
         login_btn: "Login",
         logout_btn: "Logout",
-        // Add more common translations here...
+        // NOTE: login_btn and logout_btn IDs are used in HTML
     },
     // Hindi
     'hi': {
@@ -158,7 +27,6 @@ const translations = {
         dashboard_desc: "पानी, बिजली और पैसे की बचत देखें।",
         login_btn: "लॉगिन करें",
         logout_btn: "लॉगआउट",
-        // Add more common translations here...
     },
     // Odia (Oriya)
     'or': {
@@ -172,15 +40,12 @@ const translations = {
         dashboard_desc: "ଜଳ, ବିଦ୍ୟୁତ ଓ ଅର୍ଥ ସଞ୍ଚୟ ଦେଖନ୍ତୁ।",
         login_btn: "ଲଗଇନ୍ କରନ୍ତୁ",
         logout_btn: "ଲଗଆଉଟ୍",
-        // Add more common translations here...
     }
 };
 
-// ===========================================
-// 2. 🚀 CORE APP VARIABLES & FUNCTIONS
-// ===========================================
+// 2. 🚀 CORE APP VARIABLES & ROUTING
 
-let loggedInUserName = 'Kisaan'; // Global variable to store the logged-in user's name
+let loggedInUserName = 'Kisaan'; 
 
 // Function to switch between pages
 function showPage(pageId) {
@@ -189,25 +54,12 @@ function showPage(pageId) {
     });
     document.getElementById(pageId).classList.add('active');
 
-    // Update username display on Home page
     if (pageId === 'home-page') {
         document.getElementById('user-name-display').textContent = loggedInUserName;
     }
 }
 
-// Function to toggle the password field visibility
-function togglePasswordVisibility(passwordFieldId, buttonElement) {
-    const passwordField = document.getElementById(passwordFieldId);
-    if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        buttonElement.textContent = '🔒';
-    } else {
-        passwordField.type = 'password';
-        buttonElement.textContent = '👁️';
-    }
-}
-
-// Function to handle Sign-up
+// Function to handle Sign-up (Using Local Storage for this MVP)
 function signupUser() {
     const name = document.getElementById('signup-name').value;
     const email = document.getElementById('signup-email').value;
@@ -228,7 +80,7 @@ function signupUser() {
     }
 }
 
-// Function to handle Login
+// Function to handle Login (Using Local Storage for this MVP)
 function loginUser() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
@@ -257,16 +109,15 @@ function loginUser() {
     alert('Invalid Email or Password. Please check your credentials or Sign-up.');
 }
 
-// ===========================================
-// 3. 🌐 LANGUAGE LOGIC
-// ===========================================
+
+// 3. 🌐 LANGUAGE & TOGGLE LOGIC
 
 function setLanguage(lang) {
     const currentLangData = translations[lang];
 
     if (!currentLangData) return;
 
-    // Home Page Updates (IDs must be present in HTML!)
+    // Home Page Updates
     document.getElementById('greeting-text').textContent = currentLangData.greeting;
     document.getElementById('manage-farm-text').textContent = currentLangData.manage_farm;
 
@@ -280,158 +131,144 @@ function setLanguage(lang) {
     document.getElementById('dashboard-desc').textContent = currentLangData.dashboard_desc;
 
     document.getElementById('logout-btn-text').textContent = currentLangData.logout_btn;
+    document.getElementById('login-btn-text').textContent = currentLangData.login_btn;
+    // Assuming signup button ID is 'signup-btn-text'
+    // document.getElementById('signup-btn-text').textContent = currentLangData.signup_btn; 
 
-    // Store selected language
     localStorage.setItem('kisanAppLang', lang);
 }
 
+function toggleLanguageDropdown() {
+    const dropdown = document.getElementById('lang-options');
+    if (dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
+    } else {
+        dropdown.style.display = 'block';
+    }
+}
 
-// ===========================================
-// 4. 💧 SMART IRRIGATION LOGIC
-// ===========================================
+function closeDropdown() {
+    document.getElementById('lang-options').style.display = 'none';
+}
 
-const CROP_WATER_NEED = {
-    rice: 6.0, // Average Daily Water Need (mm/day)
-    wheat: 5.5,
-    maize: 5.0
-};
+
+// 4. 💧 SMART IRRIGATION & FERTILIZER LOGIC
+
+// Data for Irrigation Calculation (Simplified)
+const CROP_WATER_NEED = { rice: 6.0, wheat: 5.5, maize: 5.0 };
+
+// Data for Fertilizer Calculation (Simplified)
+const STANDARD_NUTRIENTS_KG_PER_ACRE = { rice: { N: 60, P: 30, K: 20 }, wheat: { N: 55, P: 25, K: 15 }, maize: { N: 70, P: 35, K: 25 } };
+const ADJUSTMENT_FACTORS = { low: 1.25, medium: 1.0, high: 0.75 };
+const FERTILIZER_PURITY = { Urea_N: 0.46, DAP_N: 0.18, DAP_P: 0.46, MOP_K: 0.60 };
+
+
+// Central Savings Function
+function updateSavings(type, amount) {
+    let currentSavings = JSON.parse(localStorage.getItem('kisanAppSavings') || '{}');
+    if (isNaN(currentSavings[type])) {
+        currentSavings[type] = 0;
+    }
+    currentSavings[type] += amount;
+    localStorage.setItem('kisanAppSavings', JSON.stringify(currentSavings));
+}
+
 
 function calculateIrrigation() {
     const rainfall = parseFloat(document.getElementById('weather-condition').value);
     const crop = document.getElementById('crop-type').value;
     const area = parseFloat(document.getElementById('area-size').value);
     const resultBox = document.getElementById('irrigation-result-display');
+    
+    // Basic validation...
 
-    // if (isNaN(rainfall) || !crop || isNaN(area) || area <= 0) {
-    //     resultBox.innerHTML = '<p style="color: red;">❌ Kripya sabhi jaankariyan sahi se bharein.</p>';
-    //     return;
-    // }
-
-
-    // ... (inside calculateIrrigation function) ...
+    const cropNeed = CROP_WATER_NEED[crop] || 5.5; 
+    const netNeed = cropNeed - rainfall; 
+    
     if (netNeed <= 0) {
-        // Zaroorat nahi hai
         const waterSavedLitres = area * cropNeed * 10000;
-
-        // 🔑 FIX: Water aur Money bachat save karna
+        
+        // Update Savings
         updateSavings('water', waterSavedLitres);
-        // Anumaan: Har 1000 litre bachat par ₹0.50 bijli/diesel bachat
-        updateSavings('money', Math.round(waterSavedLitres / 1000 * 0.50));
-
-        // ... (rest of the result display code) ...
-    }
-    // ...
-
-    const cropNeed = CROP_WATER_NEED[crop] || 5.5;
-    const netNeed = cropNeed - rainfall;
-
-    if (netNeed <= 0) {
-        // Paani ki zaroorat nahi hai
-        const waterSavedLitres = area * cropNeed * 10000;
-        resultBox.innerHTML = `
-            <p style="color: green; font-weight: bold;">✅ Sichaai Zaroori Nahi Hai!</p>
-            <p>Expected Baarish (${rainfall}mm) aapki fasal ki zaroorat (${cropNeed}mm) se kaafi hai.</p>
-            <p style="font-size: 0.9em; margin-top: 10px;">💰 **Anumaanit Bachat:** Lagbhag ${waterSavedLitres.toLocaleString()} Litre paani.</p>
-        `;
+        updateSavings('money', Math.round(waterSavedLitres / 1000 * 0.50)); 
+        
+        resultBox.innerHTML = `...`; // Display success
     } else {
-        // Paani ki zaroorat hai
-        const timeNeededMinutes = (netNeed / 4) * 60; // Assuming standard pump rate: 4mm/hour
-        resultBox.innerHTML = `
-            <p style="color: darkorange; font-weight: bold;">⚠️ Sichaai Zaroori Hai!</p>
-            <p>Fasal ko abhi **${netNeed.toFixed(1)} mm** paani ki zaroorat hai.</p>
-            <p style="font-size: 1.1em; margin-top: 10px;">⏰ **Anumaanit Samay:** ${Math.round(timeNeededMinutes)} Minute.</p>
-        `;
+        const timeNeededMinutes = (netNeed / 4) * 60; 
+        resultBox.innerHTML = `...`; // Display irrigation needed
     }
 }
 
 
-// ===========================================
-// 5. ✅ INITIALIZATION (CRITICAL FOR LANGUAGE)
-// ===========================================
+function calculateFertilizer() {
+    const crop = document.getElementById('fert-crop-type').value;
+    const yield = parseFloat(document.getElementById('fert-yield').value);
+    const nLevel = document.getElementById('n-level').value;
+    const pLevel = document.getElementById('p-level').value;
+    const kLevel = document.getElementById('k-level').value;
+    const resultBox = document.getElementById('fertilizer-result-display');
+    
+    // ... validation ...
+    
+    const standardDose = STANDARD_NUTRIENTS_KG_PER_ACRE[crop];
+    
+    // Adjust Nutrient Need
+    const requiredN = standardDose.N * ADJUSTMENT_FACTORS[nLevel] * (yield / 15);
+    const requiredP = standardDose.P * ADJUSTMENT_FACTORS[pLevel] * (yield / 15);
+    const requiredK = standardDose.K * ADJUSTMENT_FACTORS[kLevel] * (yield / 15);
+
+    // Convert to Fertilizer Materials (Urea, DAP, MOP) ...
+    // ... 
+    
+    // FERTILIZER SAVINGS LOGIC
+    const totalStandardFert = standardDose.N + standardDose.P + standardDose.K;
+    const totalRecommendedFert = requiredN + requiredP + requiredK;
+    
+    if (totalStandardFert > totalRecommendedFert) {
+        const fertSaved = totalStandardFert - totalRecommendedFert;
+        updateSavings('fertilizer', fertSaved);
+        updateSavings('money', Math.round(fertSaved * 20)); // ₹20 per kg saved
+    }
+    // ... result display code ...
+}
+
+// 6. 📈 SUSTAINABILITY DASHBOARD LOGIC
+
+
+function loadDashboard() {
+    showPage('dashboard-page');
+    
+    const savings = JSON.parse(localStorage.getItem('kisanAppSavings') || '{}');
+    
+    const water = savings.water || 0;
+    const fert = savings.fertilizer || 0;
+    const money = savings.money || 0;
+    
+    document.getElementById('total-water-saved').textContent = 
+        `${(water / 1000).toFixed(1)} K Litre`;
+    
+    document.getElementById('total-fert-saved').textContent = 
+        `${fert.toFixed(1)} kg`;
+    
+    document.getElementById('total-money-saved').textContent = 
+        `₹ ${Math.round(money).toLocaleString()}`;
+}
+
+
+// 7. ✅ INITIALIZATION (CRITICAL FOR LANGUAGE & ROUTING)
 
 document.addEventListener('DOMContentLoaded', () => {
-    // A. Initial Language Set Karna (Page load hote hi language set hoti hai)
-    const savedLang = localStorage.getItem('kisanAppLang') || 'hi';
-    setLanguage(savedLang);
+    // 1. Initial Language Set Karna
+    const savedLang = localStorage.getItem('kisanAppLang') || 'hi'; 
+    setLanguage(savedLang); 
 
-    // B. Login State Check Karna
+    // 2. Login State Check Karna
     const storedUserCheck = localStorage.getItem('kisanAppUser');
     if (storedUserCheck) {
         const userData = JSON.parse(storedUserCheck);
         loggedInUserName = userData.name;
         showPage('login-page');
     } else {
-        showPage('signup-page');
+        showPage('signup-page'); 
     }
 });
-
-
-
-
-
-
-
-// Function to show/hide the dropdown menu
-function toggleLanguageDropdown() {
-    const dropdown = document.getElementById('lang-options');
-    // Agar chhipa hua hai, toh dikhaao (block)
-    if (dropdown.style.display === 'block') {
-        dropdown.style.display = 'none';
-    } else {
-        // Varna, chhupa do (none)
-        dropdown.style.display = 'block';
-    }
-}
-
-// Function to close the dropdown after selecting a language
-function closeDropdown() {
-    document.getElementById('lang-options').style.display = 'none';
-}
-
-// NOTE: Aapke setLanguage function calls mein humne 'closeDropdown()' jod diya hai.
-// Example: onclick="setLanguage('en'); closeDropdown()"
-
-
-
-
-
-// Global function to update total savings in Local Storage
-function updateSavings(type, amount) {
-    let currentSavings = JSON.parse(localStorage.getItem('kisanAppSavings') || '{}');
-
-    // Ensure the type exists and is a number
-    if (isNaN(currentSavings[type])) {
-        currentSavings[type] = 0;
-    }
-
-    currentSavings[type] += amount;
-    localStorage.setItem('kisanAppSavings', JSON.stringify(currentSavings));
-}
-
-
-
-
-
-// script.js mein yeh naya function jodein
-function loadDashboard() {
-    // Page ko switch karein
-    showPage('dashboard-page');
-
-    // Local Storage se data nikalna
-    const savings = JSON.parse(localStorage.getItem('kisanAppSavings') || '{}');
-
-    // Ensure all values are available, default to 0 if not found
-    const water = savings.water || 0;
-    const fert = savings.fertilizer || 0;
-    const money = savings.money || 0;
-
-    // Display updates
-    document.getElementById('total-water-saved').textContent =
-        `${(water / 1000).toFixed(1)} K Litre`; // K Litres mein dikhana
-
-    document.getElementById('total-fert-saved').textContent =
-        `${fert.toFixed(1)} kg`;
-
-    document.getElementById('total-money-saved').textContent =
-        `₹ ${Math.round(money).toLocaleString()}`; // Rupee symbol ke saath
-}

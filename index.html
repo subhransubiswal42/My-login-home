@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Kisan - Login</title>
+    <title>Smart Kisan - Resource Planner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,7 +30,6 @@
         <main class="form-container">
             <input type="email" id="login-email" placeholder="Email Address" required>
             <input type="password" id="login-password" placeholder="Password" required>
-            <!-- <button onclick="loginUser()">Login</button> -->
             <button onclick="loginUser()" id="login-btn-text">Login</button>
             <p class="switch-link">You don't have Account! <a href="#" onclick="showPage('signup-page')">Sign-up
                     Please</a></p>
@@ -45,7 +44,6 @@
             <input type="text" id="signup-name" placeholder="Enter Your Name " required>
             <input type="email" id="signup-email" placeholder="Enter Email Address" required>
             <input type="password" id="signup-password" placeholder="Password (Minimum 6 characters)" required>
-            <!-- <button onclick="signupUser()">Sign-up</button> -->
             <button onclick="signupUser()" id="signup-btn-text">Sign-up</button>
             <p class="switch-link">Already You have an a Account! <a href="#" onclick="showPage('login-page')">Login
                     please</a></p>
@@ -83,9 +81,6 @@
         </footer>
     </div>
 
-
-
-    <!-- new page start -->
     <div id="irrigation-input-page" class="page">
         <header>
             <button class="back-btn" onclick="showPage('home-page')">← Back</button>
@@ -117,7 +112,6 @@
         </main>
     </div>
 
-    <!-- new div for Fertilizer -->
     <div id="fertilizer-input-page" class="page">
         <header>
             <button class="back-btn" onclick="showPage('home-page')">← Back</button>
@@ -134,7 +128,7 @@
                 <option value="maize">Maize</option>
             </select>
 
-            <label for="fert-yield">Expected Yield (Acre):</label>
+            <label for="fert-yield">Expected Yield (Quintal/Acre):</label>
             <input type="number" id="fert-yield" placeholder="Example: 15" value="15" required>
 
             <label>Status of Nutrients in Soil:</label>
@@ -167,14 +161,12 @@
 
         </main>
     </div>
-
-
-
+    
     <div id="dashboard-page" class="page">
         <header>
             <button class="back-btn" onclick="showPage('home-page')">← Wapas</button>
-            <h2 id="dashboard-title-text">Sustainability Dashboard</h2>
-            <p id="dashboard-desc-text">Aapki mahine ki bachat aur pradarshan (performance).</p>
+            <h2 id="dashboard-title">Sustainability Dashboard</h2>
+            <p id="dashboard-desc">Aapki mahine ki bachat aur pradarshan (performance).</p>
         </header>
         <main class="form-container">
 
@@ -204,7 +196,6 @@
 
         </main>
     </div>
-
 
 
     <script src="script.js"></script>
