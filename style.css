@@ -16,17 +16,18 @@ body {
 
 /* Page Management */
 .page {
-    /* width: 100%; */
+    width: 100%;
     max-width: 400px;
     /* Mobile View Focus */
     /* padding: 120px 30px 30px 30px; */
-    /* background-color: #fff; */
-    /* border-radius: 12px; */
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
-    /* padding: 60px 30px 30px 30px; */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
     box-sizing: border-box;
     display: none;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .page.active {
@@ -241,13 +242,13 @@ button:hover {
     /* transition: background-color 0.3s ease, transform 0.1s ease; */
 
     /* Text layout for better readability */
-    /* line-height: 1.2;  */
-}
+    /* line-height: 1.2;  
+}*/
 
 /* Hover Effect for Language Buttons */
 /* .language button:hover {
     background-color: #1c7420;
-    /* Thoda aur dark green */
+    /* Thoda aur dark green 
     transform: translateY(-1px);
     opacity: 0.95;
 } */
@@ -260,7 +261,7 @@ button:hover {
 .language-dropdown-container {
     position: fixed;
     /* Screen par fixed rahega */
-    top: 20px;
+    top: 15px;
     right: 20px;
     z-index: 9999;
 }
