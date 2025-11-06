@@ -18,7 +18,7 @@ body {
 .page {
     /* width: 100%; */
     max-width: 400px; /* Mobile View Focus */
-    padding: 100px 30px 30px 30px;
+    padding: 120px 30px 30px 30px;
     /* background-color: #fff; */
     /* border-radius: 12px; */
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
@@ -36,9 +36,11 @@ header {
     margin-bottom: 30px;
 }
 header h1 {
+    text-align: center;
+    margin-bottom: 50px;
     color: #4CAF50; /* Green theme */
-    margin: 0 0 5px;
-    font-size: 1.8em;
+    /* margin: 0 0 5px; */
+    /* font-size: 1.8em; */
 }
 header p {
     color: #777;
@@ -195,16 +197,16 @@ button:hover {
 /* Language Switcher Container Styling */
 .language {
     position:absolute;
-    top: 10px;
+    top: 5px;
     right: 10px;
     z-index: 1000;
     /* text-align: center; */
-    padding: 10px;   /*Thodi zyaada padding */
+    /* padding: 10px;   Thodi zyaada padding */
     /* margin: 0;  */
-    max-width: 120px; 
+    /* max-width: 120px;  */
     /* background-color: #e8f5e9;   Light green background, matching feature cards */
     /* border-radius: 12px; */
-    box-shadow: none;   /*Thoda shadow jodein */
+    /* box-shadow: none;   Thoda shadow jodein */
 }
 
 /* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
