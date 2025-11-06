@@ -287,7 +287,7 @@ button:hover {
 /* Dropdown Options Container (Jo Pehle Chhipa Rahega) */
 .dropdown-content {
     max-width: 110px;
-    /* display: none; */
+    display: none;
     /* 🔑 Default roop se chhipa hua */
     /* position: absolute; */
     /* Toggle button ke neeche dikhega */
