@@ -18,7 +18,7 @@ body {
 .page {
     /* width: 100%; */
     max-width: 400px; /* Mobile View Focus */
-    padding: 120px 30px 30px 30px;
+    /* padding: 120px 30px 30px 30px; */
     /* background-color: #fff; */
     /* border-radius: 12px; */
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
@@ -197,23 +197,23 @@ button:hover {
 /* Language Switcher Container Styling */
 .language {
     position:absolute;
-    top: 5px;
-    right: 10px;
-    z-index: 1000;
-    /* text-align: center; */
-    /* padding: 10px;   Thodi zyaada padding */
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    text-align: center;
+    padding: 10px;   /*Thodi zyaada padding
     /* margin: 0;  */
-    /* max-width: 120px;  */
-    /* background-color: #e8f5e9;   Light green background, matching feature cards */
-    /* border-radius: 12px; */
-    /* box-shadow: none;   Thoda shadow jodein */
+    max-width: 120px; 
+    background-color: #e8f5e9;   /*Light green background, matching feature cards*/
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /*Thoda shadow jodein*/
 }
 
 /* Button Styling (Naye styles jo .language ke andar ke buttons par apply honge) */
 .language button {
     /* Existing button styles ko override karein */
     width: 100%; 
-    padding: 5px 8px;
+    padding: 8px 10px;
     margin: 3px 0; /* Vertical spacing */
     
     /* background-color: #4c964f;    Darker green (Aapke icons se match) */
